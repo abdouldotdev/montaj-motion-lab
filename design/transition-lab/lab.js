@@ -1,5 +1,5 @@
-import {TransitionRenderer, transitions, FPS, W, H, clamp, drawCrop} from './effects.js';
-import {editorial, aiCatalogue} from './catalog.js';
+import {TransitionRenderer, transitions, FPS, W, H, clamp, drawCrop} from './effects.js?v=murtpf86';
+import {editorial, aiCatalogue} from './catalog.js?v=murtpf86';
 
 const $=id=>document.getElementById(id);
 const video=$('source'),renderer=new TransitionRenderer($('preview'));

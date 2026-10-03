@@ -1,5 +1,5 @@
 {
-  "builtAt": "2026-10-03T03:17:48.124Z",
+  "builtAt": "2026-10-03T03:19:22.024Z",
   "files": [
     {
       "path": ".nojekyll",
@@ -13,8 +13,8 @@
     },
     {
       "path": "design/montaj-transitions-lab.html",
-      "bytes": 5524,
-      "sha256": "9f09f688953889b8602e5d090d85653440e2e89f91672907ebb1907d14fcf3b3"
+      "bytes": 5557,
+      "sha256": "fe88418859b54cddd104694a7dbbd33fc7c9a8986a7db7a7f3f9ce7477f1bd8f"
     },
     {
       "path": "design/montaj-motion-lab.html",
@@ -28,13 +28,13 @@
     },
     {
       "path": "design/transition-lab/lab.js",
-      "bytes": 18141,
-      "sha256": "e0a13ebd581586f5091ec9bf5c9632d93d60cbec0c60bfa50465070ff21fb591"
+      "bytes": 18163,
+      "sha256": "29a0c663cf87f03f5bb930cf8238d549a5f42cd64a3e9200a6d90f4da16a87d7"
     },
     {
       "path": "design/transition-lab/effects.js",
-      "bytes": 24988,
-      "sha256": "1e7e51cfea738ea26b9c2144dd4690adb05d491b6aaf91b7def3de84bd462340"
+      "bytes": 24999,
+      "sha256": "dcbd43e74a11b377496a3d4d71b522d8d0ba590268fb399721ff5e14ca0fe0fd"
     },
     {
       "path": "design/transition-lab/catalog.js",

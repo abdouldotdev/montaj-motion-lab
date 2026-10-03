@@ -1,4 +1,4 @@
-import {PaperCutout} from './paper-cutout.js';
+import {PaperCutout} from './paper-cutout.js?v=murtpf86';
 export const FPS = 30;
 export const W = 720, H = 1280;
 export const transitions = [
