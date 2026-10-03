@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Montaj — Laboratoire de transitions</title>
+  <link rel="stylesheet" href="transition-lab/lab.css">
+</head>
+<body>
+  <header class="masthead">
+    <a class="brand" href="montaj-motion-lab.html">montaj<span>.</span></a>
+    <span class="header-label">MOTION STUDIES <b>02</b></span>
+    <a class="back-link" href="montaj-motion-lab.html">Animations B-roll ↗</a>
+  </header>
+  <main>
+    <div class="page-heading">
+      <div><p class="eyebrow">TON RUSH. ONZE FAÇONS DE CHANGER DE PLAN.</p><h1>L’art de la <em>coupe.</em></h1></div>
+      <p class="intro">Un seul montage. Clique sur une transition pour la voir en contexte, puis ralentis pour comprendre son mouvement.</p>
+    </div>
+    <div class="workspace">
+      <section class="screen-column" aria-label="Montage de démonstration">
+        <div class="viewer-heading"><span class="live-dot"></span><span>APERÇU VIDÉO</span><span class="source-info">720P · 30 IPS · 01:01</span></div>
+        <div class="viewer">
+          <div class="side-note"><span class="axis-label">SORTIE</span><div class="plate-preview"><canvas id="outgoing" width="108" height="192" aria-label="Plan sortant"></canvas><span>A</span></div><span class="plate-caption" id="out-label">Cadre large</span></div>
+          <div class="portrait-wrap">
+            <canvas id="preview" width="720" height="1280" aria-label="Ta vidéo avec les transitions appliquées" role="img"></canvas>
+            <div class="video-top"><span id="video-mode">TRANSITIONS ACTIVES</span><span id="active-number">01 / 11</span></div>
+            <button id="center-play" class="center-play" aria-label="Lire la vidéo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7Z"/></svg></button>
+            <div class="effect-chip" id="effect-chip" hidden><span class="effect-dot"></span><span id="effect-name"></span></div>
+            <div class="load-cover" id="load-cover"><span class="loader"></span><p id="load-status">Chargement de ton rush…</p></div>
+          </div>
+          <div class="side-note"><span class="axis-label">ENTRÉE</span><div class="plate-preview"><canvas id="incoming" width="108" height="192" aria-label="Plan entrant"></canvas><span>B</span></div><span class="plate-caption" id="in-label">Cadre rapproché</span></div>
+          <span class="viewer-footnote">Les plans alternent entre deux cadrages du même rush.</span>
+        </div>
+        <div class="transport">
+          <button id="play" class="primary-button" disabled>▶ Lire</button>
+          <button id="replay" class="icon-button" aria-label="Rejouer la transition choisie" title="Rejouer la transition">↺</button>
+          <span class="timecode"><span id="current-time">00:00.00</span><span class="time-separator"> / </span><span id="total-time">01:00.83</span></span>
+          <div class="transport-right"><label class="sr-only" for="rate">Vitesse de lecture</label><select id="rate"><option value="1">1×</option><option value="0.5">0,5×</option><option value="0.25">0,25×</option></select><button id="sound" class="icon-button" aria-label="Activer le son" aria-pressed="false" title="Activer le son">Son off</button></div>
+        </div>
+        <div class="timeline-section">
+          <div class="timeline-labels"><span>LE MONTAGE</span><span>11 POINTS DE COUPE</span></div>
+          <div class="timeline" id="timeline"><div id="timeline-progress"></div><div id="markers"></div><input id="seek" aria-label="Position dans la vidéo" type="range" min="0" max="60.8333" step="0.033333" value="0"></div>
+          <div class="timeline-ticks"><span>00:00</span><span>00:15</span><span>00:30</span><span>00:45</span><span>01:01</span></div>
+        </div>
+        <div class="inspection">
+          <div class="step-controls"><button id="previous-frame" aria-label="Image précédente">←</button><span id="frame-label">IMAGE 0000</span><button id="next-frame" aria-label="Image suivante">→</button></div>
+          <label><input id="loop" type="checkbox"> Boucler ce passage</label>
+          <button id="compare" aria-pressed="false">Voir la source</button>
+        </div>
+        <p id="player-status" class="player-status" role="status" aria-live="polite">Préparation du lecteur…</p>
+      </section>
+      <aside class="library" aria-label="Choisir une transition">
+        <div class="library-top"><h2>La collection<span>11</span></h2><div class="filters" aria-label="Filtrer les transitions"><button data-filter="all" aria-pressed="true">Toutes</button><button data-filter="original" aria-pressed="false">Concepts originaux <span>4</span></button></div><button id="export-catalog" class="catalog-export">↓ Catalogue pour l’IA · JSON</button></div>
+        <div id="transition-list" class="transition-list"></div>
+        <div class="detail" id="detail" aria-live="polite"></div>
+      </aside>
+    </div>
+    <footer><p><span class="footer-mark">●</span> Motion Lab · effets calculés dans le navigateur · voix continue</p><p>« Concept original » = proposition conçue pour Montaj. <a href="transition-lab/README.md">Notes de réalisation ↗</a></p></footer>
+  </main>
+  <video id="source" preload="auto" playsinline muted src="../output/transition-lab/source-720p.mp4" class="source-video"></video>
+  <script type="module" src="transition-lab/lab.js"></script>
+</body>
+</html>

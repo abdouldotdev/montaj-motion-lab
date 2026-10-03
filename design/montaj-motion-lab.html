@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark"><title>Montaj — Animations B-roll</title><style>html{color-scheme:dark;background:#151714}body{margin:0;padding:clamp(8px,3vw,36px);max-width:1440px;margin-inline:auto}</style></head><body><div id="montaj-motion-lab">
+  <header class="mml-header">
+    <span class="mml-brand">montaj.</span>
+    <span class="mml-kicker">MOTION LAB / IN + OUT</span>
+    <a href="montaj-transitions-lab.html" style="color:inherit;font-size:12px;text-underline-offset:3px">Transitions talking head ↗</a>
+  </header>
+
+  <div class="mml-layout">
+    <section class="mml-preview" aria-label="Aperçu de l’animation">
+      <button class="mml-stage" type="button" aria-label="Cliquer pour déplacer l’arrivée, ou utiliser les touches fléchées">
+        <span class="mml-stage-note">IN → POSITION FINALE</span>
+        <span class="mml-target" aria-hidden="true"></span>
+        <span class="mml-object" aria-hidden="true">
+          <span class="mml-object-label">MONTAJ / B-ROLL</span>
+          <span class="mml-object-title">MAKE<br>IT MOVE.</span>
+          <span class="mml-object-footer">Rapide. Vivant. Précis. <span>↗</span></span>
+        </span>
+        <span class="mml-object mml-ghost mml-ghost-near" aria-hidden="true">
+          <span class="mml-object-label">MONTAJ / B-ROLL</span>
+          <span class="mml-object-title">MAKE<br>IT MOVE.</span>
+          <span class="mml-object-footer">Rapide. Vivant. Précis. <span>↗</span></span>
+        </span>
+        <span class="mml-object mml-ghost mml-ghost-far" aria-hidden="true">
+          <span class="mml-object-label">MONTAJ / B-ROLL</span>
+          <span class="mml-object-title">MAKE<br>IT MOVE.</span>
+          <span class="mml-object-footer">Rapide. Vivant. Précis. <span>↗</span></span>
+        </span>
+        <span class="mml-stage-note mml-stage-note-bottom">CLIQUER POUR PLACER L’ARRIVÉE</span>
+      </button>
+      <div class="mml-preview-meta">
+        <span class="mml-status" role="status">Prêt</span>
+        <span class="mml-current">SNAP · STRETCH</span>
+      </div>
+    </section>
+
+    <section class="mml-controls" aria-label="Réglages d’animation">
+      <div class="mml-phase-panel">
+        <div class="mml-phase-tabs" aria-label="Phase à régler">
+          <button type="button" data-phase="in" aria-pressed="true">IN</button>
+          <button type="button" data-phase="out" aria-pressed="false">OUT</button>
+        </div>
+        <label class="mml-independent"><input type="checkbox" class="mml-independent-out"> OUT indépendant</label>
+        <p class="mml-link-note">OUT reprend actuellement les réglages IN.</p>
+      </div>
+
+      <fieldset class="mml-field mml-editable">
+        <legend>Animation</legend>
+        <div class="mml-animation-grid">
+          <button type="button" data-animation="snap" aria-pressed="true">Snap</button>
+          <button type="button" data-animation="slam" aria-pressed="false">Slam</button>
+          <button type="button" data-animation="whip" aria-pressed="false">Whip</button>
+          <button type="button" data-animation="overshoot" aria-pressed="false">Overshoot</button>
+          <button type="button" data-animation="punch" aria-pressed="false">Punch</button>
+          <button type="button" data-animation="throw" aria-pressed="false">Throw</button>
+        </div>
+      </fieldset>
+
+      <fieldset class="mml-field mml-editable">
+        <legend>Déclinaison</legend>
+        <div class="mml-tweak-row" aria-live="polite"></div>
+        <p class="mml-description">Étirement dans le sens du déplacement, puis retour net à la forme finale.</p>
+      </fieldset>
+
+      <div class="mml-control-pair">
+        <fieldset class="mml-field mml-direction-field mml-editable">
+          <legend>Départ</legend>
+          <div class="mml-directions">
+            <button type="button" data-x="-1" data-y="-1" aria-label="Coin haut gauche" aria-pressed="false">↘</button>
+            <button type="button" data-x="0" data-y="-1" aria-label="Haut" aria-pressed="false">↓</button>
+            <button type="button" data-x="1" data-y="-1" aria-label="Coin haut droit" aria-pressed="false">↙</button>
+            <button type="button" data-x="-1" data-y="0" aria-label="Gauche" aria-pressed="false">→</button>
+            <span aria-hidden="true">⊙</span>
+            <button type="button" data-x="1" data-y="0" aria-label="Droite" aria-pressed="false">←</button>
+            <button type="button" data-x="-1" data-y="1" aria-label="Coin bas gauche" aria-pressed="false">↗</button>
+            <button type="button" data-x="0" data-y="1" aria-label="Bas" aria-pressed="true">↑</button>
+            <button type="button" data-x="1" data-y="1" aria-label="Coin bas droit" aria-pressed="false">↖</button>
+          </div>
+          <span class="mml-direction-name">Depuis le bas</span>
+        </fieldset>
+
+        <div class="mml-sliders mml-editable">
+          <label class="mml-range-label" for="mml-duration"><span>Durée</span><output class="mml-duration-value" for="mml-duration">240 ms</output></label>
+          <input id="mml-duration" type="range" min="160" max="650" step="10" value="240">
+          <label class="mml-range-label" for="mml-strength"><span>Intensité</span><output class="mml-strength-value" for="mml-strength">65%</output></label>
+          <input id="mml-strength" type="range" min="20" max="100" step="5" value="65">
+        </div>
+      </div>
+
+      <div class="mml-play-row">
+        <button class="mml-play" type="button">Rejouer IN ↗</button>
+        <button class="mml-cycle" type="button">Cycle IN → OUT</button>
+      </div>
+      <div class="mml-options">
+        <label><input type="checkbox" class="mml-slow"> Ralenti ×4</label>
+        <label><input type="checkbox" class="mml-loop"> Boucle</label>
+      </div>
+    </section>
+  </div>
+</div>
+
+<style>
+  #montaj-motion-lab {
+    --mml-bg: light-dark(#f3f4ed, #151714);
+    --mml-surface: light-dark(#e8ecdf, #20251e);
+    --mml-text: light-dark(#20271c, #f3f2e9);
+    --mml-muted: light-dark(#515d48, #b0b7a6);
+    --mml-line: light-dark(#b5bfaa, #414839);
+    --mml-accent: #d6fa72;
+    --mml-ink: #1b2510;
+    --mml-focus: light-dark(#496514, #d6fa72);
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 8px;
+    background: var(--mml-bg);
+    color: var(--mml-text);
+    font-family: "Avenir Next", Avenir, system-ui, sans-serif;
+  }
+  #montaj-motion-lab * { box-sizing: border-box; }
+  #montaj-motion-lab button,
+  #montaj-motion-lab input { font: inherit; }
+  #montaj-motion-lab button { cursor: pointer; }
+  #montaj-motion-lab button:focus-visible,
+  #montaj-motion-lab input:focus-visible { outline: 2px solid var(--mml-focus); outline-offset: 3px; }
+  #montaj-motion-lab .mml-header { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid var(--mml-line); }
+  #montaj-motion-lab .mml-brand { font-size: 26px; font-weight: 700; letter-spacing: -1.5px; }
+  #montaj-motion-lab .mml-kicker { color: var(--mml-muted); font-size: 11px; letter-spacing: 1px; }
+  #montaj-motion-lab .mml-layout { display: grid; grid-template-columns: minmax(0, 1fr) 276px; gap: 24px; align-items: center; padding-top: 20px; }
+  #montaj-motion-lab .mml-preview { min-width: 0; }
+  #montaj-motion-lab .mml-stage { position: relative; display: block; width: 100%; height: 466px; overflow: hidden; padding: 0; border: 1px solid var(--mml-line); border-radius: 6px; background-color: var(--mml-surface); background-image: linear-gradient(color-mix(in srgb, var(--mml-text) 4%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--mml-text) 4%, transparent) 1px, transparent 1px); background-size: 28px 28px; color: var(--mml-text); text-align: left; cursor: crosshair; touch-action: manipulation; }
+  #montaj-motion-lab .mml-stage-note { position: absolute; top: 14px; left: 14px; color: var(--mml-muted); font-size: 11px; letter-spacing: .6px; pointer-events: none; }
+  #montaj-motion-lab .mml-stage-note-bottom { top: auto; bottom: 14px; }
+  #montaj-motion-lab .mml-target { position: absolute; left: 50%; top: 50%; width: 158px; height: 188px; margin: -94px 0 0 -79px; border: 1px dashed var(--mml-focus); border-radius: 4px; opacity: .4; pointer-events: none; }
+  #montaj-motion-lab .mml-object { position: absolute; z-index: 2; left: 50%; top: 50%; width: 146px; height: 176px; margin: -88px 0 0 -73px; padding: 15px; border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between; background: var(--mml-accent); color: var(--mml-ink); transform-origin: 50% 50%; will-change: transform, border-radius, filter; pointer-events: none; }
+  #montaj-motion-lab .mml-ghost { z-index: 1; opacity: 0; filter: blur(3px); }
+  #montaj-motion-lab .mml-ghost-far { filter: blur(5px); }
+  #montaj-motion-lab .mml-object-label { font-size: 11px; letter-spacing: .35px; }
+  #montaj-motion-lab .mml-object-title { font-size: 32px; line-height: .98; font-weight: 800; letter-spacing: -1.8px; }
+  #montaj-motion-lab .mml-object-footer { display: flex; justify-content: space-between; align-items: center; gap: 5px; font-size: 11px; white-space: nowrap; }
+  #montaj-motion-lab .mml-object-footer span { font-size: 22px; }
+  #montaj-motion-lab .mml-preview-meta { display: flex; justify-content: space-between; gap: 12px; margin-top: 10px; color: var(--mml-muted); font-size: 11px; }
+  #montaj-motion-lab .mml-current { text-align: right; }
+  #montaj-motion-lab .mml-phase-panel { margin-bottom: 16px; padding: 9px; border: 1px solid var(--mml-line); border-radius: 6px; background: color-mix(in srgb, var(--mml-surface) 72%, transparent); }
+  #montaj-motion-lab .mml-phase-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
+  #montaj-motion-lab .mml-phase-tabs button { min-height: 38px; border: 1px solid var(--mml-line); border-radius: 4px; background: var(--mml-surface); color: var(--mml-text); font-size: 12px; font-weight: 700; letter-spacing: .7px; }
+  #montaj-motion-lab .mml-independent { display: flex; align-items: center; gap: 7px; min-height: 32px; margin-top: 5px; color: var(--mml-text); font-size: 12px; cursor: pointer; }
+  #montaj-motion-lab .mml-link-note { margin: 0; color: var(--mml-muted); font-size: 10px; line-height: 1.35; }
+  #montaj-motion-lab .mml-field { min-width: 0; margin: 0 0 16px; padding: 0; border: 0; }
+  #montaj-motion-lab .mml-field legend,
+  #montaj-motion-lab .mml-range-label { display: flex; justify-content: space-between; width: 100%; margin-bottom: 8px; padding: 0; color: var(--mml-muted); font-size: 12px; }
+  #montaj-motion-lab .mml-animation-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; }
+  #montaj-motion-lab .mml-animation-grid button,
+  #montaj-motion-lab .mml-tweak-row button { min-height: 40px; padding: 7px 8px; border: 1px solid var(--mml-line); border-radius: 5px; background: var(--mml-surface); color: var(--mml-text); font-size: 12px; }
+  #montaj-motion-lab button[aria-pressed="true"] { border-color: var(--mml-accent); background: var(--mml-accent); color: var(--mml-ink); }
+  #montaj-motion-lab .mml-tweak-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; }
+  #montaj-motion-lab .mml-description { min-height: 34px; margin: 8px 0 0; color: var(--mml-muted); font-size: 11px; line-height: 1.45; }
+  #montaj-motion-lab .mml-control-pair { display: grid; grid-template-columns: 142px minmax(0, 1fr); gap: 14px; }
+  #montaj-motion-lab .mml-directions { display: grid; grid-template-columns: repeat(3, 42px); gap: 5px; }
+  #montaj-motion-lab .mml-directions button { width: 42px; height: 42px; padding: 0; border: 1px solid var(--mml-line); border-radius: 4px; background: var(--mml-surface); color: var(--mml-text); font-size: 22px; }
+  #montaj-motion-lab .mml-directions > span { display: grid; place-items: center; color: var(--mml-muted); }
+  #montaj-motion-lab .mml-direction-name { display: block; margin-top: 6px; color: var(--mml-muted); font-size: 11px; }
+  #montaj-motion-lab .mml-sliders { min-width: 0; }
+  #montaj-motion-lab output { color: var(--mml-focus); font-variant-numeric: tabular-nums; }
+  #montaj-motion-lab input[type="range"] { display: block; width: 100%; height: 24px; margin: 0 0 11px; accent-color: var(--mml-focus); }
+  #montaj-motion-lab .mml-editable.mml-locked { opacity: .45; }
+  #montaj-motion-lab .mml-editable button:disabled,
+  #montaj-motion-lab .mml-editable input:disabled { cursor: not-allowed; }
+  #montaj-motion-lab .mml-play-row { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  #montaj-motion-lab .mml-play { width: 100%; padding: 12px; border: 0; border-radius: 4px; background: var(--mml-accent); color: var(--mml-ink); font-size: 14px; font-weight: 600; }
+  #montaj-motion-lab .mml-cycle { width: 100%; padding: 12px 8px; border: 1px solid var(--mml-line); border-radius: 4px; background: var(--mml-surface); color: var(--mml-text); font-size: 12px; font-weight: 600; }
+  #montaj-motion-lab .mml-options { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 7px; }
+  #montaj-motion-lab .mml-options label { display: flex; align-items: center; gap: 6px; min-height: 32px; color: var(--mml-muted); font-size: 12px; cursor: pointer; }
+  #montaj-motion-lab input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--mml-focus); }
+  @media (max-width: 660px) {
+    #montaj-motion-lab { padding: 14px; }
+    #montaj-motion-lab .mml-layout { grid-template-columns: 1fr; gap: 17px; }
+    #montaj-motion-lab .mml-stage { height: 330px; }
+    #montaj-motion-lab .mml-animation-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 360px) {
+    #montaj-motion-lab .mml-control-pair { grid-template-columns: 131px minmax(0, 1fr); gap: 9px; }
+    #montaj-motion-lab .mml-directions { grid-template-columns: repeat(3, 40px); gap: 3px; }
+    #montaj-motion-lab .mml-directions button { width: 40px; height: 40px; }
+    #montaj-motion-lab .mml-animation-grid { grid-template-columns: repeat(2, 1fr); }
+    #montaj-motion-lab .mml-play-row { grid-template-columns: 1fr; }
+    #montaj-motion-lab .mml-stage-note { font-size: 11px; letter-spacing: 0; }
+  }
+  @media (pointer: coarse) {
+    #montaj-motion-lab .mml-animation-grid button,
+    #montaj-motion-lab .mml-tweak-row button,
+    #montaj-motion-lab .mml-options label { min-height: 44px; }
+  }
+</style>
+
+<script>
+(() => {
+  const root = document.getElementById('montaj-motion-lab');
+  const stage = root.querySelector('.mml-stage');
+  const object = root.querySelector('.mml-object:not(.mml-ghost)');
+  const ghosts = [...root.querySelectorAll('.mml-ghost')];
+  const target = root.querySelector('.mml-target');
+  const duration = root.querySelector('#mml-duration');
+  const strength = root.querySelector('#mml-strength');
+  const durationValue = root.querySelector('.mml-duration-value');
+  const strengthValue = root.querySelector('.mml-strength-value');
+  const tweakRow = root.querySelector('.mml-tweak-row');
+  const description = root.querySelector('.mml-description');
+  const status = root.querySelector('.mml-status');
+  const current = root.querySelector('.mml-current');
+  const slow = root.querySelector('.mml-slow');
+  const loop = root.querySelector('.mml-loop');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  const presets = {
+    snap: {
+      duration: 240,
+      tweaks: [
+        { id: 'original', label: 'Original', description: 'Translation très rapide depuis le départ choisi, freinage brutal et arrêt net. Aucune déformation.' },
+        { id: 'stretch', label: 'Stretch', description: 'Étirement dans le sens du déplacement, puis retour net à la forme finale.' },
+        { id: 'funnel', label: 'Funnel', description: 'L’avant s’ouvre et l’arrière se resserre pendant la course, puis tout redevient plat.' }
+      ]
+    },
+    slam: {
+      duration: 310,
+      tweaks: [
+        { id: 'original', label: 'Original', description: 'Arrivée violente, légère compression à l’impact, puis reprise immédiate de la forme finale.' },
+        { id: 'squash', label: 'Heavy squash', description: 'Compression plus forte sur l’axe du choc, avec conservation approximative du volume.' },
+        { id: 'edge', label: 'Edge impact', description: 'Le bord qui touche en premier encaisse le choc avant que la carte se remette droite.' }
+      ]
+    },
+    whip: {
+      duration: 260,
+      tweaks: [
+        { id: 'original', label: 'Original', description: 'Traversée très rapide avec traînée et flou orienté, puis netteté parfaite à l’arrivée.' },
+        { id: 'skew', label: 'Skew', description: 'Cisaillement nerveux dans le sens de la course, puis redressement instantané.' },
+        { id: 'trail', label: 'Trail stretch', description: 'L’avant mène le mouvement tandis que l’arrière semble rester en retard.' }
+      ]
+    },
+    overshoot: {
+      duration: 360,
+      tweaks: [
+        { id: 'original', label: 'Original', description: 'La carte dépasse légèrement sa destination, puis revient une seule fois se caler dessus.' },
+        { id: 'return-stretch', label: 'Return stretch', description: 'Après le dépassement, la carte s’étire légèrement pendant son retour.' },
+        { id: 'turn-squash', label: 'Turn squash', description: 'Compression courte au point de changement de direction, puis retour sec.' }
+      ]
+    },
+    punch: {
+      duration: 300,
+      tweaks: [
+        { id: 'original', label: 'Original', description: 'La carte avance en grossissant, dépasse brièvement sa taille finale, puis se stabilise.' },
+        { id: 'bulge', label: 'Bulge', description: 'Grossissement frontal avec un dépassement de taille bref, puis stabilisation.' },
+        { id: 'open', label: 'Width open', description: 'La carte arrive resserrée et s’ouvre perpendiculairement à sa trajectoire.' }
+      ]
+    },
+    throw: {
+      duration: 420,
+      tweaks: [
+        { id: 'original', label: 'Original', description: 'La carte suit une trajectoire courbe avec une petite rotation, puis se cale sur son angle final.' },
+        { id: 'perspective', label: 'Perspective', description: 'Trajectoire courbe, rotation et bascule 3D avant de se poser à plat.' },
+        { id: 'flex', label: 'Flex', description: 'Un bord semble suivre avec du retard pendant le lancer, puis rejoint l’autre.' }
+      ]
+    }
+  };
+
+  const makeConfig = () => ({ animation: 'snap', tweak: 'original', duration: 240, strength: 65, direction: { x: 0, y: 1 } });
+  const cloneConfig = config => ({ ...config, direction: { ...config.direction } });
+  const configs = { in: makeConfig(), out: makeConfig() };
+  let phase = 'in';
+  let independentOut = false;
+  let destination = { x: .5, y: .5 };
+  let activeAnimation = null;
+  let ghostAnimations = [];
+  let loopTimer = null;
+  let cycleTimer = null;
+  let generation = 0;
+
+  const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+  const lerp = (from, to, amount) => from + (to - from) * amount;
+  const smooth = value => value * value * (3 - 2 * value);
+  const easeOut = value => 1 - Math.pow(1 - value, 4);
+  const pulse = (time, center, radius) => Math.max(0, 1 - Math.abs(time - center) / radius);
+  const identity = 'matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1)';
+
+  function axisScale(ux, uy, along, across) {
+    const delta = along - across;
+    const a = across + delta * ux * ux;
+    const b = delta * ux * uy;
+    const d = across + delta * uy * uy;
+    return `matrix3d(${a},${b},0,0,${b},${d},0,0,0,0,1,0,0,0,0,1)`;
+  }
+
+  function projectiveTaper(ux, uy, amount, scale) {
+    const reach = Math.max(1, Math.abs(ux) * object.offsetWidth / 2 + Math.abs(uy) * object.offsetHeight / 2);
+    return `matrix3d(${scale},0,0,${-amount * ux / reach},0,${scale},0,${-amount * uy / reach},0,0,1,0,0,0,0,1)`;
+  }
+
+  function orientedSkew(ux, uy, degrees) {
+    const angle = Math.atan2(uy, ux) * 180 / Math.PI;
+    return `rotate(${angle}deg) skewX(${degrees}deg) rotate(${-angle}deg)`;
+  }
+
+  function settlePosition(time, config) {
+    if (config.animation === 'overshoot') {
+      if (time <= .7) return 1.12 * easeOut(time / .7);
+      return lerp(1.12, 1, smooth((time - .7) / .3));
+    }
+    if (config.animation === 'slam') return time < .78 ? easeOut(time / .78) : 1;
+    if (config.animation === 'punch') return easeOut(clamp(time / .86, 0, 1));
+    return easeOut(time);
+  }
+
+  function deformation(time, ux, uy, intensity, config) {
+    if (time >= 1) return identity;
+    const animationName = config.animation;
+    const tweakName = config.tweak;
+
+    if (animationName === 'snap') {
+      if (tweakName === 'original') return identity;
+      const amount = time < .84 ? Math.pow(1 - time / .84, 1.1) * intensity : 0;
+      if (tweakName === 'stretch') {
+        const along = 1 + .66 * amount;
+        return axisScale(ux, uy, along, 1 / along);
+      }
+      return projectiveTaper(ux, uy, .44 * amount, 1 - .13 * amount);
+    }
+
+    if (animationName === 'slam') {
+      const impact = smooth(pulse(time, .79, .16)) * intensity;
+      if (tweakName === 'original' || tweakName === 'squash') {
+        const along = 1 - (tweakName === 'original' ? .1 : .22) * impact;
+        return axisScale(ux, uy, along, 1 / along);
+      }
+      const baseAlong = 1 - .09 * impact;
+      return `${axisScale(ux, uy, baseAlong, 1 / baseAlong)} ${projectiveTaper(ux, uy, -.25 * impact, 1 - .06 * impact)}`;
+    }
+
+    if (animationName === 'whip') {
+      if (tweakName === 'original') return identity;
+      const amount = Math.pow(1 - time, 1.35) * intensity;
+      if (tweakName === 'skew') return orientedSkew(ux, uy, -24 * amount);
+      const along = 1 + .82 * amount;
+      return axisScale(ux, uy, along, 1 / along);
+    }
+
+    if (animationName === 'overshoot') {
+      if (tweakName === 'original') return identity;
+      if (tweakName === 'return-stretch') {
+        const amount = time > .68 ? Math.sin(clamp((time - .68) / .32, 0, 1) * Math.PI) * intensity : 0;
+        const along = 1 + .2 * amount;
+        return axisScale(ux, uy, along, 1 / along);
+      }
+      const impact = smooth(pulse(time, .7, .14)) * intensity;
+      const along = 1 - .17 * impact;
+      return axisScale(ux, uy, along, 1 / along);
+    }
+
+    if (animationName === 'punch') {
+      const approach = easeOut(clamp(time / .76, 0, 1));
+      const settle = time <= .76 ? lerp(.58, 1.13, approach) : lerp(1.13, 1, smooth((time - .76) / .24));
+      const mixedScale = lerp(1, settle, intensity);
+      if (tweakName === 'original') return `scale(${mixedScale})`;
+      if (tweakName === 'bulge') return `scale(${mixedScale}) perspective(400px) translateZ(${18 * pulse(time, .73, .28) * intensity}px)`;
+      const across = time <= .76 ? lerp(.45, 1.12, approach) : lerp(1.12, 1, smooth((time - .76) / .24));
+      return axisScale(ux, uy, lerp(1, mixedScale, .28), lerp(1, across, intensity));
+    }
+
+    const airborne = Math.sin(Math.PI * time) * intensity;
+    const baseRotation = (ux - uy) * -12 * (1 - time) * intensity;
+    if (tweakName === 'original') return `rotate(${baseRotation}deg)`;
+    if (tweakName === 'perspective') {
+      const rotateX = -uy * 52 * (1 - time) * intensity;
+      const rotateY = ux * 52 * (1 - time) * intensity;
+      return `perspective(360px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotate(${baseRotation}deg)`;
+    }
+    return `rotate(${baseRotation}deg) ${orientedSkew(ux, uy, -18 * airborne)} ${axisScale(ux, uy, 1 + .2 * airborne, 1 / (1 + .2 * airborne))}`;
+  }
+
+  function positionElements() {
+    const marginX = (object.offsetWidth / 2 + 12) / stage.clientWidth;
+    const marginY = (object.offsetHeight / 2 + 28) / stage.clientHeight;
+    destination.x = clamp(destination.x, marginX, 1 - marginX);
+    destination.y = clamp(destination.y, marginY, 1 - marginY);
+    for (const element of [object, target, ...ghosts]) {
+      element.style.left = `${destination.x * 100}%`;
+      element.style.top = `${destination.y * 100}%`;
+    }
+  }
+
+  function stopAnimation() {
+    generation++;
+    clearTimeout(loopTimer);
+    clearTimeout(cycleTimer);
+    if (activeAnimation) activeAnimation.cancel();
+    for (const animation of ghostAnimations) animation.cancel();
+    ghostAnimations = [];
+    activeAnimation = null;
+  }
+
+  function syncLinkedOut() {
+    if (!independentOut) configs.out = cloneConfig(configs.in);
+  }
+
+  function getConfig(requestedPhase = phase) {
+    if (requestedPhase === 'out' && !independentOut) syncLinkedOut();
+    return configs[requestedPhase];
+  }
+
+  function buildFrames(config, requestedPhase, lag = 0, ghostIndex = -1) {
+    const width = stage.clientWidth;
+    const height = stage.clientHeight;
+    const finalX = destination.x * width;
+    const finalY = destination.y * height;
+    const clearance = Math.hypot(object.offsetWidth, object.offsetHeight) * .85 + 28;
+    const startX = config.direction.x < 0 ? -clearance : config.direction.x > 0 ? width + clearance : finalX;
+    const startY = config.direction.y < 0 ? -clearance : config.direction.y > 0 ? height + clearance : finalY;
+    const dx = startX - finalX;
+    const dy = startY - finalY;
+    const distance = Math.max(1, Math.hypot(dx, dy));
+    const ux = -dx / distance;
+    const uy = -dy / distance;
+    const perpendicularX = -uy;
+    const perpendicularY = ux;
+    const intensity = config.strength / 100;
+    const frames = [];
+
+    for (let index = 0; index <= 120; index++) {
+      const playbackTime = index / 120;
+      const delayedPlayback = clamp(playbackTime - lag, 0, 1);
+      const sourceTime = requestedPhase === 'in' ? delayedPlayback : 1 - delayedPlayback;
+      const movement = settlePosition(sourceTime, config);
+      let x = dx * (1 - movement);
+      let y = dy * (1 - movement);
+      if (config.animation === 'throw') {
+        const arc = Math.min(70, distance * .18) * Math.sin(Math.PI * sourceTime) * intensity;
+        x += perpendicularX * arc;
+        y += perpendicularY * arc;
+      }
+      if (sourceTime >= 1) { x = 0; y = 0; }
+      const frame = {
+        offset: playbackTime,
+        transform: `translate(${x}px, ${y}px) ${deformation(sourceTime, ux, uy, intensity, config)}`,
+        borderRadius: config.animation === 'punch' && config.tweak === 'bulge' ? `${4 + 12 * pulse(sourceTime, .73, .3) * intensity}px` : '4px',
+        filter: config.animation === 'whip' ? `blur(${4.5 * Math.pow(1 - sourceTime, 1.4) * intensity}px)` : 'blur(0px)'
+      };
+      if (ghostIndex >= 0) {
+        const fade = Math.sin(Math.PI * playbackTime);
+        frame.opacity = playbackTime >= .96 ? 0 : fade * (ghostIndex === 0 ? .2 : .1) * intensity;
+      }
+      frames.push(frame);
+    }
+    return frames;
+  }
+
+  function playPhase(requestedPhase = phase, onDone = null, allowLoop = true) {
+    stopAnimation();
+    positionElements();
+    const config = getConfig(requestedPhase);
+    if (reducedMotion.matches) {
+      object.style.transform = 'none';
+      status.textContent = 'Mouvement réduit activé';
+      return;
+    }
+
+    const ticket = generation;
+    const playbackDuration = config.duration * (slow.checked ? 4 : 1);
+    const phaseLabel = requestedPhase.toUpperCase();
+    status.textContent = slow.checked ? `${phaseLabel} · ralenti ×4` : `${phaseLabel}…`;
+    activeAnimation = object.animate(buildFrames(config, requestedPhase), { duration: playbackDuration, easing: 'linear', fill: 'both' });
+    if (config.animation === 'whip') {
+      ghostAnimations = ghosts.map((ghost, ghostIndex) => {
+        const lag = .035 + ghostIndex * .035;
+        return ghost.animate(buildFrames(config, requestedPhase, lag, ghostIndex), { duration: playbackDuration, easing: 'linear', fill: 'both' });
+      });
+    }
+    activeAnimation.onfinish = () => {
+      if (ticket !== generation) return;
+      status.textContent = requestedPhase === 'in' ? 'En place' : 'Sorti';
+      if (onDone) { onDone(); return; }
+      if (allowLoop && loop.checked && !document.hidden) loopTimer = setTimeout(() => playPhase(requestedPhase), 1050);
+    };
+  }
+
+  function playCycle() {
+    loop.checked = false;
+    playPhase('in', () => {
+      status.textContent = 'Maintien…';
+      cycleTimer = setTimeout(() => playPhase('out', null, false), slow.checked ? 1200 : 650);
+    }, false);
+  }
+
+  function updateConfig(mutator) {
+    if (phase === 'out' && !independentOut) return;
+    mutator(configs[phase]);
+    syncLinkedOut();
+  }
+
+  function renderEditor(shouldPlay = true) {
+    const config = getConfig();
+    const locked = phase === 'out' && !independentOut;
+    const preset = presets[config.animation];
+    if (!preset.tweaks.some(item => item.id === config.tweak)) config.tweak = preset.tweaks[0].id;
+
+    root.querySelectorAll('[data-phase]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.phase === phase)));
+    root.querySelectorAll('[data-animation]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.animation === config.animation)));
+    root.querySelectorAll('.mml-editable').forEach(container => {
+      container.classList.toggle('mml-locked', locked);
+      container.querySelectorAll('button, input').forEach(control => { control.disabled = locked; });
+    });
+
+    tweakRow.replaceChildren();
+    for (const tweak of preset.tweaks) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = tweak.label;
+      button.dataset.tweak = tweak.id;
+      button.disabled = locked;
+      button.setAttribute('aria-pressed', String(tweak.id === config.tweak));
+      button.addEventListener('click', () => {
+        updateConfig(value => { value.tweak = tweak.id; });
+        renderEditor();
+      });
+      tweakRow.append(button);
+    }
+    const selected = preset.tweaks.find(item => item.id === config.tweak);
+    description.textContent = phase === 'out' ? `Sortie : mouvement joué vers l’extérieur. ${selected.description}` : selected.description;
+    current.textContent = `${phase.toUpperCase()} · ${config.animation.toUpperCase()} · ${selected.label.toUpperCase()}`;
+    duration.value = config.duration;
+    strength.value = config.strength;
+    durationValue.textContent = `${config.duration} ms`;
+    strengthValue.textContent = `${config.strength}%`;
+    root.querySelectorAll('.mml-directions button').forEach(button => {
+      const selectedDirection = Number(button.dataset.x) === config.direction.x && Number(button.dataset.y) === config.direction.y;
+      button.setAttribute('aria-pressed', String(selectedDirection));
+      if (selectedDirection) root.querySelector('.mml-direction-name').textContent = `${phase === 'in' ? 'Depuis' : 'Vers'} : ${button.getAttribute('aria-label').toLowerCase()}`;
+    });
+    root.querySelector('.mml-direction-field legend').textContent = phase === 'in' ? 'Départ' : 'Sortie';
+    root.querySelector('.mml-stage-note').textContent = phase === 'in' ? 'IN → POSITION FINALE' : 'POSITION FINALE → OUT';
+    root.querySelector('.mml-play').textContent = `Rejouer ${phase.toUpperCase()} ↗`;
+    root.querySelector('.mml-link-note').textContent = independentOut ? 'IN et OUT ont chacun leurs propres réglages.' : 'OUT reprend actuellement les réglages IN.';
+    if (shouldPlay) playPhase();
+  }
+
+  root.querySelectorAll('[data-animation]').forEach(button => {
+    button.addEventListener('click', () => {
+      updateConfig(config => {
+        config.animation = button.dataset.animation;
+        config.tweak = 'original';
+        config.duration = presets[config.animation].duration;
+      });
+      renderEditor();
+    });
+  });
+
+  root.querySelectorAll('.mml-directions button').forEach(button => {
+    button.addEventListener('click', () => {
+      updateConfig(config => { config.direction = { x: Number(button.dataset.x), y: Number(button.dataset.y) }; });
+      renderEditor();
+    });
+  });
+
+  root.querySelectorAll('[data-phase]').forEach(button => {
+    button.addEventListener('click', () => {
+      phase = button.dataset.phase;
+      renderEditor();
+    });
+  });
+
+  root.querySelector('.mml-independent-out').addEventListener('change', event => {
+    if (event.target.checked && !independentOut) configs.out = cloneConfig(configs.in);
+    independentOut = event.target.checked;
+    syncLinkedOut();
+    renderEditor();
+  });
+
+  stage.addEventListener('click', event => {
+    if (event.detail === 0) { playPhase(); return; }
+    const rect = stage.getBoundingClientRect();
+    destination = {
+      x: (event.clientX - rect.left - stage.clientLeft) / stage.clientWidth,
+      y: (event.clientY - rect.top - stage.clientTop) / stage.clientHeight
+    };
+    playPhase();
+  });
+
+  stage.addEventListener('keydown', event => {
+    const steps = { ArrowLeft: [-.05, 0], ArrowRight: [.05, 0], ArrowUp: [0, -.05], ArrowDown: [0, .05] };
+    const step = steps[event.key];
+    if (!step) return;
+    event.preventDefault();
+    destination.x += step[0];
+    destination.y += step[1];
+    playPhase();
+  });
+
+  duration.addEventListener('input', () => {
+    updateConfig(config => { config.duration = Number(duration.value); });
+    durationValue.textContent = `${duration.value} ms`;
+  });
+  duration.addEventListener('change', () => playPhase());
+  strength.addEventListener('input', () => {
+    updateConfig(config => { config.strength = Number(strength.value); });
+    strengthValue.textContent = `${strength.value}%`;
+  });
+  strength.addEventListener('change', () => playPhase());
+  root.querySelector('.mml-play').addEventListener('click', () => playPhase());
+  root.querySelector('.mml-cycle').addEventListener('click', playCycle);
+  slow.addEventListener('change', () => playPhase());
+  loop.addEventListener('change', () => { clearTimeout(loopTimer); if (loop.checked) playPhase(); });
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) return;
+    stopAnimation();
+    positionElements();
+    status.textContent = 'En place';
+  });
+  reducedMotion.addEventListener('change', () => {
+    if (reducedMotion.matches) loop.checked = false;
+    playPhase();
+  });
+
+  let measuredWidth = 0;
+  const observer = new ResizeObserver(() => {
+    if (measuredWidth === stage.clientWidth) return;
+    measuredWidth = stage.clientWidth;
+    stopAnimation();
+    positionElements();
+    status.textContent = 'Prêt';
+  });
+  observer.observe(stage);
+  positionElements();
+  renderEditor(false);
+})();
+</script>
+</body></html>

@@ -1,0 +1,255 @@
+{
+  "builtAt": "2026-10-03T03:06:12.920Z",
+  "files": [
+    {
+      "path": ".nojekyll",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "index.html",
+      "bytes": 521,
+      "sha256": "7cd7ef94033a1b1fc4533bc7393ed98125a1d548031df4920f574826843a3b18"
+    },
+    {
+      "path": "design/montaj-transitions-lab.html",
+      "bytes": 5524,
+      "sha256": "f301b6e704f68089836040c974e6029a783fc0667b6dc03717c5a2625453e3d3"
+    },
+    {
+      "path": "design/montaj-motion-lab.html",
+      "bytes": 34680,
+      "sha256": "509544234268f179d4bc38b80ba09cfb09ece0fa485c1702c9da9737051a959f"
+    },
+    {
+      "path": "design/transition-lab/lab.css",
+      "bytes": 15532,
+      "sha256": "6ec79d026458d4ecff0684e3a618475fd4cb7803b6db6c4238b7a2b6f6809c66"
+    },
+    {
+      "path": "design/transition-lab/lab.js",
+      "bytes": 16930,
+      "sha256": "0c524667f6f2642b3efa137c4d0d5621c6dacccc4f9651c18b6ef5b851b0ab23"
+    },
+    {
+      "path": "design/transition-lab/effects.js",
+      "bytes": 24988,
+      "sha256": "1e7e51cfea738ea26b9c2144dd4690adb05d491b6aaf91b7def3de84bd462340"
+    },
+    {
+      "path": "design/transition-lab/catalog.js",
+      "bytes": 7174,
+      "sha256": "52821b34fb7c485be49f695cb719e74c7b68d893094e0e4fb98aa6e85d2bfb80"
+    },
+    {
+      "path": "design/transition-lab/paper-cutout.js",
+      "bytes": 6800,
+      "sha256": "172018e268a49ecc6a920f9b71491c7d52738b772d658acd7a2b8f629a8a631f"
+    },
+    {
+      "path": "marketing/pub-demain/assets/Satoshi-Variable.ttf",
+      "bytes": 127420,
+      "sha256": "02ad131926aa46d282b6af73ad2bcaecb0ec6ef3b830a2f08dcabef44f1140ff"
+    },
+    {
+      "path": "output/transition-lab/source-720p.mp4",
+      "bytes": 8395748,
+      "sha256": "abdf29aa246040016c31f6594f6e36e2377725d07174a0b8b3cba813f224b1f4"
+    },
+    {
+      "path": "output/transition-lab/plates/blink-incoming.jpg",
+      "bytes": 158864,
+      "sha256": "e4143d3e755d5b91a919032399b31b7e6822c36ca66ff7bbaf4772451ed0b8dc"
+    },
+    {
+      "path": "output/transition-lab/plates/blink-mask.png",
+      "bytes": 128948,
+      "sha256": "131b83bd71cf6b3e7975fd8b0413c10dfdcd6bc891122985291ea94d1ad52957"
+    },
+    {
+      "path": "output/transition-lab/plates/blink.jpg",
+      "bytes": 157110,
+      "sha256": "6a68f22226c5697800e133075ca71e7a9c3531934328bf945d42f929563046a5"
+    },
+    {
+      "path": "output/transition-lab/plates/echo-incoming.jpg",
+      "bytes": 171501,
+      "sha256": "032ec53f25f29d69bd8329ef9bc0a9ba229b6332434013c64bc0459ae4545145"
+    },
+    {
+      "path": "output/transition-lab/plates/echo-mask.png",
+      "bytes": 128449,
+      "sha256": "b086d40d34aea051e570a90832a718cdafc311f405dcd5b623d7d6f6a58cead0"
+    },
+    {
+      "path": "output/transition-lab/plates/echo.jpg",
+      "bytes": 166857,
+      "sha256": "7f83830ed208e0abbccbe87e22ff05b7ceb373b6e6e123c3c6ae81de92303670"
+    },
+    {
+      "path": "output/transition-lab/plates/face-incoming.jpg",
+      "bytes": 158610,
+      "sha256": "8c08877a5326509c3bc93c3bd8fc5f4ec19657b62cc9e0f7ccf32a686625a174"
+    },
+    {
+      "path": "output/transition-lab/plates/face-mask.png",
+      "bytes": 149519,
+      "sha256": "bc6c0d73433c5efeed428c1565f225ff2c097cbb95d54239daf609b687e2d6e1"
+    },
+    {
+      "path": "output/transition-lab/plates/face.jpg",
+      "bytes": 154957,
+      "sha256": "8bb70caf198d283aba4c8bde855a1a13acfd29f000ac7c42e02f911f5de72073"
+    },
+    {
+      "path": "output/transition-lab/plates/gesture-incoming.jpg",
+      "bytes": 147376,
+      "sha256": "1a623520e089c6db3afcf8f18d342cca64b762dea69c76f6e0593cc97fbc52d0"
+    },
+    {
+      "path": "output/transition-lab/plates/gesture-mask.png",
+      "bytes": 113635,
+      "sha256": "81e3aa4104faea117202d69aa3d37deac74ecce95b1afb4cf9941133baa83f74"
+    },
+    {
+      "path": "output/transition-lab/plates/gesture.jpg",
+      "bytes": 147927,
+      "sha256": "8849c55835ac5dd0b21905fc372d5fea6b8fdb0ef0e446cb55ca57c7f07dfccf"
+    },
+    {
+      "path": "output/transition-lab/plates/glass-incoming.jpg",
+      "bytes": 162305,
+      "sha256": "1eac4e9a9df36f9a05d5d3b38b924a29ead19625a43b2aacf2927fd3e025b904"
+    },
+    {
+      "path": "output/transition-lab/plates/glass-mask.png",
+      "bytes": 123271,
+      "sha256": "22c60bf3d1735b8effe0070b71ef0c696f7d01a5772fdc6e097225fde6f2c132"
+    },
+    {
+      "path": "output/transition-lab/plates/glass.jpg",
+      "bytes": 152986,
+      "sha256": "83ac6ba28410977f91bbe729344225c071775cc6938ebde35754438ee2887f92"
+    },
+    {
+      "path": "output/transition-lab/plates/gravity-incoming.jpg",
+      "bytes": 146020,
+      "sha256": "c8c1c6ea9ea1f5ec6ed3b64a726d9302c3cdb71f749ffbd6183633c102afa383"
+    },
+    {
+      "path": "output/transition-lab/plates/gravity-mask.png",
+      "bytes": 128446,
+      "sha256": "bd0bc4a2683749c80c8805ace733419398b392926ed3ec6d4beda106a425cdef"
+    },
+    {
+      "path": "output/transition-lab/plates/gravity.jpg",
+      "bytes": 160172,
+      "sha256": "49c809b207c22d4fd5c5c8c9e9a6ed08b3fe530fa1b3408f36a89208419b4995"
+    },
+    {
+      "path": "output/transition-lab/plates/hand-incoming.jpg",
+      "bytes": 153678,
+      "sha256": "b9060004f0ed23d4677b2e3704d3d05e51ee2726607323525ed102b040fdcbc3"
+    },
+    {
+      "path": "output/transition-lab/plates/hand-mask.png",
+      "bytes": 124942,
+      "sha256": "63a51e701a8144da8ff38c6a26307bb5fc60d7285e1686e0b70bf2c26b7a4f72"
+    },
+    {
+      "path": "output/transition-lab/plates/hand-source-mask.png",
+      "bytes": 119403,
+      "sha256": "c97b51a0ca333f1d82db80f427d16305c3cf874a8d91fb0fa3ccff3a159576b4"
+    },
+    {
+      "path": "output/transition-lab/plates/hand-source.jpg",
+      "bytes": 148403,
+      "sha256": "d8ab70a8c779d5d4583f9ded484b212f569f7083edb0cefc141ebcb20c162b0c"
+    },
+    {
+      "path": "output/transition-lab/plates/hand.jpg",
+      "bytes": 163929,
+      "sha256": "9043ecb8c0b84a78457dc4fc6f09c80e55c93c89823d1f15c9484423a58358b0"
+    },
+    {
+      "path": "output/transition-lab/plates/lag-incoming.jpg",
+      "bytes": 147635,
+      "sha256": "55d0435877fc29d897e109b03c58c7e6920777bef28bb55e074b641de1346c2e"
+    },
+    {
+      "path": "output/transition-lab/plates/lag-mask.png",
+      "bytes": 114293,
+      "sha256": "28d47152859957edbd41deda6599e0faabee71d606156d36deceaa69f50f9fb3"
+    },
+    {
+      "path": "output/transition-lab/plates/lag.jpg",
+      "bytes": 161948,
+      "sha256": "cdd8cd0006dc5680ff379b9acdc4b67fd5e8c142b73cb16ef4831b4ec74a8b3f"
+    },
+    {
+      "path": "output/transition-lab/plates/peel-incoming.jpg",
+      "bytes": 163358,
+      "sha256": "c8c5f85ac60685ea5bda56f63d1de4650d407f897bfcd30dc0c87f0fe149542a"
+    },
+    {
+      "path": "output/transition-lab/plates/peel-mask.png",
+      "bytes": 103501,
+      "sha256": "25678b4c0665e1c2b88aafd439ff2bc22fc168e03c76bdebe2414291287decb2"
+    },
+    {
+      "path": "output/transition-lab/plates/peel.jpg",
+      "bytes": 156671,
+      "sha256": "abf4840c478ecf585815638a4d893b428397fbf9b331f1ba41bb17e533e0ac74"
+    },
+    {
+      "path": "output/transition-lab/plates/portal-incoming-mask.png",
+      "bytes": 90809,
+      "sha256": "6fa70030cb2334b511041a4ff6e961bc6c19fa2944d27058113c4f0a50cb16de"
+    },
+    {
+      "path": "output/transition-lab/plates/portal-incoming.jpg",
+      "bytes": 169114,
+      "sha256": "4c7ee6ef1cc28f0f7f0c53dbba7f8cdddf1c68f4d6ff07b590665f4fc9c67e07"
+    },
+    {
+      "path": "output/transition-lab/plates/portal-mask.png",
+      "bytes": 120057,
+      "sha256": "6ffb1f9558442f2cf68dd5a3c39df77e9a2ded13c714b65d513ae1c3d79a3dba"
+    },
+    {
+      "path": "output/transition-lab/plates/portal.jpg",
+      "bytes": 151099,
+      "sha256": "6b5061c66e17e5ca4c80fbc6df16174317e3e852949d3052d71b41d05bba418e"
+    },
+    {
+      "path": "output/transition-lab/plates/word-incoming.jpg",
+      "bytes": 156089,
+      "sha256": "30a1d3018d51ce98e618e61b348e1954941ff974b78a398cf409594d44045400"
+    },
+    {
+      "path": "output/transition-lab/plates/word-mask.png",
+      "bytes": 113853,
+      "sha256": "46f68374c428f5e77e04e23b9eab1901f517ceccae4868b08cb1fdca371eb5a5"
+    },
+    {
+      "path": "output/transition-lab/plates/word.jpg",
+      "bytes": 153846,
+      "sha256": "75558de9bf0ddc8065ca8cd21ccaf141044f8d311abe9ae9e9af98194c9c8688"
+    },
+    {
+      "path": "output/transition-lab/plates/analysis.json",
+      "bytes": 34447,
+      "sha256": "5705f6c596dba0314f579090c0bcae5075314f62e70acb2b26025667e1c22776"
+    },
+    {
+      "path": "design/transition-lab/README.md",
+      "bytes": 8963,
+      "sha256": "f7e42aeb30f4bfe9410ac068fb73d80377d481d98760aafc97699d049c92b03b"
+    },
+    {
+      "path": "README.md",
+      "bytes": 321,
+      "sha256": "67a527cde4ba88d246f1d65c460ace89901ae40c3e42cd5e3c39b354bf3e6e7a"
+    }
+  ]
+}
