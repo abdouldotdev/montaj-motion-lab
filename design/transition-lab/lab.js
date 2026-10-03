@@ -4,6 +4,7 @@ import {editorial, aiCatalogue} from './catalog.js';
 const $=id=>document.getElementById(id);
 const video=$('source'),renderer=new TransitionRenderer($('preview'));
 let selected=null,ready=false,original=false,lastActive=null,filter='all',lastTime=0;
+let pendingSeek=null;
 const status=$('player-status');
 const timeLabel=t=>`${String(Math.floor(t/60)).padStart(2,'0')}:${String(Math.floor(t%60)).padStart(2,'0')}`;
 const timecode=t=>timeLabel(t)+'.'+String(Math.floor((t%1)*100)).padStart(2,'0');
@@ -17,7 +18,7 @@ function library() {
     row.innerHTML=`<span class="row-number">${String(index+1).padStart(2,'0')}</span><span class="row-copy"><span class="row-title">${t.name}</span><span class="row-sub ${t.original?'original-label':''}">${t.original?'Concept original · Montaj':t.frames+' images · '+Math.round(t.duration*1000)+' ms'}</span>${tags(editorial[t.id].tags)}</span><span class="row-time">${timeLabel(t.cut)}</span><span class="row-arrow" aria-hidden="true">↗</span>`;
     row.onclick=()=>selectTransition(t,true);$('transition-list').append(row);
     const marker=document.createElement('button');marker.className='marker'+(t.original?' original':'');marker.dataset.id=t.id;marker.dataset.label=`${String(index+1).padStart(2,'0')} · ${t.name}`;
-    marker.style.left=(t.cut/video.duration*100)+'%';marker.setAttribute('aria-label',`Aller à ${t.name}, ${timeLabel(t.cut)}`);marker.onclick=()=>selectTransition(t,true);$('markers').append(marker);
+    marker.style.left=(Number.isFinite(video.duration)&&video.duration>0?t.cut/video.duration*100:0)+'%';marker.setAttribute('aria-label',`Aller à ${t.name}, ${timeLabel(t.cut)}`);marker.onclick=()=>selectTransition(t,true);$('markers').append(marker);
   });
 }
 function paintSelection() {
@@ -71,9 +72,20 @@ function bindEffectControls(t) {
 function selectTransition(t,autoplay=false) {
   if(!ready)return;
   selected=t;history.replaceState(null,'','#'+t.id);paintSelection();
-  video.currentTime=Math.max(0,t.start-.85);
+  seekToTransition(t);
   if(autoplay)play();else{video.pause();render();}
   status.textContent=`${t.name} · lecture 0,85 s avant l’effet.`;
+}
+function seekToTransition(t) {
+  const target=Math.max(0,t.start-.85);
+  if(video.readyState>=1&&Number.isFinite(video.duration))video.currentTime=target;
+  else pendingSeek=target;
+}
+function updateDurationMetadata() {
+  if(!Number.isFinite(video.duration)||video.duration<=0)return;
+  $('total-time').textContent=timecode(video.duration);$('seek').max=String(video.duration);
+  document.querySelectorAll('.marker').forEach(marker=>{const t=transitions.find(t=>t.id===marker.dataset.id);if(t)marker.style.left=(t.cut/video.duration*100)+'%';});
+  if(pendingSeek!==null){const target=pendingSeek;pendingSeek=null;video.currentTime=clamp(target,0,video.duration-.001);}
 }
 function render(time=video.currentTime) {
   if(!ready||video.readyState<2)return;
@@ -93,13 +105,16 @@ function render(time=video.currentTime) {
 }
 async function play() {
   if(!ready)return;
-  try {await video.play();status.textContent=$('loop').checked?'Boucle du passage sélectionné.':'Lecture du montage · les onze transitions sont actives.';}
+  try {
+    // iPhone Safari can defer media loading until an explicit user gesture.
+    // Start the request from Lire or a transition click instead of setup.
+    if(video.networkState===HTMLMediaElement.NETWORK_EMPTY||video.error)video.load();
+    await video.play();status.textContent=$('loop').checked?'Boucle du passage sélectionné.':'Lecture du montage · les onze transitions sont actives.';
+  }
   catch(error){status.textContent='Appuie sur Lire pour démarrer la vidéo.';console.warn(error);}
 }
 function togglePlay(){if(video.paused)play();else video.pause();}
 function stepFrame(direction){if(!ready)return;video.pause();const index=Math.floor(video.currentTime*FPS+.001)+direction;video.currentTime=clamp(index/FPS+.0001,0,video.duration-.001);}
-function waitForVideo(){return new Promise((resolve,reject)=>{if(video.readyState>=2){resolve();return;}video.addEventListener('loadeddata',resolve,{once:true});video.addEventListener('error',()=>reject(new Error('Impossible de charger la vidéo compressée.')),{once:true});});}
-
 $('play').onclick=togglePlay;$('center-play').onclick=togglePlay;
 $('preview').onclick=togglePlay;
 $('replay').onclick=()=>selectTransition(selected,true);
@@ -112,6 +127,10 @@ $('loop').onchange=()=>{if($('loop').checked&&selected)selectTransition(selected
 $('export-catalog').onclick=()=>{const url=URL.createObjectURL(new Blob([JSON.stringify(aiCatalogue(transitions,renderer),null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='montaj-transition-catalogue-ia.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
 document.querySelectorAll('[data-filter]').forEach(button=>button.onclick=()=>{filter=button.dataset.filter;document.querySelectorAll('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));document.querySelectorAll('.transition-row').forEach(row=>{row.hidden=filter==='original'&&!row.classList.contains('original');});});
 video.addEventListener('play',()=>{$('play').textContent='Ⅱ Pause';$('center-play').hidden=true;});
+video.addEventListener('loadedmetadata',updateDurationMetadata);
+video.addEventListener('durationchange',updateDurationMetadata);
+video.addEventListener('loadeddata',()=>{if(pendingSeek!==null)updateDurationMetadata();render();});
+video.addEventListener('error',()=>{if(video.error){status.textContent=`La vidéo ne peut pas être décodée (code ${video.error.code}). Réessaie avec le bouton Lire.`;console.error('Échec du chargement vidéo',video.error.message);}});
 video.addEventListener('pause',()=>{$('play').textContent='▶ Lire';$('center-play').hidden=false;render();});
 video.addEventListener('seeked',()=>render());
 video.addEventListener('ended',()=>{if($('loop').checked&&selected)selectTransition(selected,true);else status.textContent='Fin du montage. Choisis un effet pour revoir son passage.';});
@@ -126,15 +145,17 @@ document.addEventListener('keydown',event=>{
 
 async function setup() {
   try {
-    await Promise.all([waitForVideo(),renderer.load('../output/transition-lab/plates'),document.fonts.ready]);
+    // Don't block the editor on video data: mobile Safari may defer it until Play.
+    await Promise.all([renderer.load('../output/transition-lab/plates'),document.fonts.ready]);
     ready=true;$('load-cover').hidden=true;$('play').disabled=false;
-    $('total-time').textContent=timecode(video.duration);$('seek').max=String(video.duration);
+    updateDurationMetadata();
     library();
+    updateDurationMetadata();
     const requested=location.hash.slice(1);selected=transitions.find(t=>t.id===requested)??transitions[0];
     selectTransition(selected,false);
     if('requestVideoFrameCallback' in video){const tick=(_,meta)=>{render(meta.mediaTime);video.requestVideoFrameCallback(tick);};video.requestVideoFrameCallback(tick);}
     else {const tick=()=>{if(!video.paused)render();requestAnimationFrame(tick);};requestAnimationFrame(tick);}
-    status.textContent='Prêt · clique sur un effet pour lire son passage. Espace = lecture, flèches = image par image.';
+    status.textContent='Prêt · touche Lire ou sélectionne un effet pour charger la vidéo. Espace = lecture, flèches = image par image.';
   } catch(error){$('load-status').textContent=error.message;status.textContent=error.message;$('load-cover').querySelector('.loader').hidden=true;console.error(error);}
 }
 // Small deterministic interface used to inspect the rendered effect frames.
